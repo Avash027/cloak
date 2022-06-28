@@ -1,0 +1,16 @@
+.postModalCommentInfo{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.postModalImage{
+    height: 50px;
+    width: 50px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: solid 1px red;
+}
+
+.postModalContent{
+}

@@ -1,0 +1,35 @@
+.background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    background: rgb(255,255,255);
+background: linear-gradient(159deg, rgba(255,255,255,1) 0%, rgba(3,0,255,1) 100%);
+}
+
+.container{
+    margin-top: 2rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 30rem;
+    min-width: 30%;
+    border-radius: 5px;
+    max-width: 30%;
+    padding: 5px 30px;
+}
+
+.header{
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: grey;
+}
+
+.subHeader{
+    text-align: center;
+    color: gray;
+}

@@ -9,9 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.6",
+    "@mantine/dropzone": "^4.2.6",
+    "@mantine/hooks": "^4.2.6",
+    "@mantine/modals": "^4.2.6",
+    "@mantine/next": "^4.2.6",
+    "@mantine/notifications": "^4.2.6",
+    "axios": "^0.27.2",
+    "js-cookie": "^3.0.1",
     "next": "12.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "nextjs-progressbar": "^0.0.14",
+    "nookies": "^2.5.2",
+    "project-template": "file:..",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-query": "^3.39.0",
+    "tabler-icons-react": "^1.48.1"
   },
   "devDependencies": {
     "eslint": "8.18.0",
