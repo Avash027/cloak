@@ -1,34 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### <p align="center"><u> Cloak</u><p>
 
-## Getting Started
+<p align="center"> Connect with folks from universities across the globe. Share your stories, experiences and feedback</p>
 
-First, run the development server:
+**Webapp live at: [Here](https://cloak-gilt.vercel.app/)**
+
+### Libraries and Frameworks used
+
+- **Sendgrid** for sending verification mail
+- **Tensorflow** for flagging offensive/harmful content
+- **Express** for the backend framework
+- **NextJS** for the frontend
+- **Mantine** for UI Components
+- **Axios** for making API Calls
+- **js-Cookie** for storing and accessing cookies in browser
+- **nookies** for storing and accessing cookies from nextjs app
+
+### Features
+
+- Machine Learning model is used to flag offensive/harmful content. Users can choose to view or ignore these posts.
+- Users can perform all operations like posting, liking, bookmarking and deleting.
+- Email verification is used to prevent spam.
+- Only users with verified domain are allowed to sign up (Just like blind).
+- Admin dashboard to ban / verify users and add new domain address.
+
+### API Documentation
+
+| Type   | Route                         | Access  | Description                                               |
+| ------ | ----------------------------- | ------- | --------------------------------------------------------- |
+| POST   | /api/signup                   | Public  | Allows new user to signup                                 |
+| POST   | /api/login                    | Public  | Allows user to login                                      |
+| GET    | /api/verify/:token            | Public  | Verifies user                                             |
+| GET    | /api/user                     | Private | Returns user details                                      |
+| POST   | /api/post                     | Private | Allows user to make a new post                            |
+| GET    | /api/post/:offset/:limit      | Private | Returns latest post from [offset offset + limit)          |
+| POST   | /api/like                     | Private | Allows users to like a post                               |
+| POST   | /api/bookmarks                | Private | Allows user to bookmark a post                            |
+| GET    | /api/singlepost/:pid          | Private | Returns one post with pid                                 |
+| GET    | /api/bookmarks/:offset/:limit | Private | Returns all bookmarked post from [offset, offset + limit) |
+| GET    | /api/user/post/:offset/:limit | Private | Returns all liked post from [offset, offset + limit)      |
+| DELETE | /api/post/:pid                | Private | Deletes the post with id pid                              |
+| GET    | /api/admin/users              | Admin   | Gets all users                                            |
+| POST   | /api/admin/user               | Admin   | Updates user details                                      |
+| GET    | /api/admin/colleges           | Admin   | Gets all colleges                                         |
+| POST   | /api/admin/college            | Admin   | Adds a new college to the list                            |
+
+### Database design
+
+<img src="./public/db-design.png"></img>
+
+### Install the frontend
 
 ```bash
+git clone https://github.com/Avash027/cloak.git
+cd cloak
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set up the enviroment variables
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+ENV = DEVELOPMENT/PRODUCTION
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Install the backend
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+git clone https://github.com/Avash027/cloak-server.git
+cd cloak-server
+npm install
+npm run dev
+```
 
-## Learn More
+Set the enviroment variables
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+DB_HOST =
+DB_DATABASE =
+DB_PASSWORD =
+DB_PORT =
+DB_USER =
+DB_MAX =
+NODE_ENV = DEVELOPMENT/PRODUCTION
+SECRET =
+SENDGRID_MAIL_KEY =
+PORT =
+```
