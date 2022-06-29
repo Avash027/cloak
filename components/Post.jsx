@@ -32,6 +32,7 @@ const useStyles = createStyles((theme) => ({
     top:"50%",
     left:"50%",
     transform:"translate(-50%,-50%)",
+    cursor:"pointer",
   }
 
 }));
@@ -80,12 +81,12 @@ export function Post({
   return (
     <Card withBorder p="lg" radius="md" className={classes.card} style={{width}} >
 
-      {!isVisible && <Overlay opacity={0.6} color="#000" blur={7} zIndex={1}>
+      {!isVisible && <Overlay opacity={0.6} color="#000" blur={7} zIndex={1}style={{cursor:"pointer"}}  onClick={e=>setIsVisible(true)}>
         </Overlay>}
 
 
-        {!isVisible && <Button className={classes.showButton} onClick={e=>setIsVisible(true)}>
-          This post might be offensive. Do you want to see it?</Button>}
+        {!isVisible && <h4 className={classes.showButton} onClick={e=>setIsVisible(true)}>
+          This post might be offensive. Do you want to see it?</h4>}
 
     <div onClick={e=>setPid(pid)} style={{cursor:"pointer"}}>
     <Text weight={700} className={classes.title} mt="xs">

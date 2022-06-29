@@ -9,17 +9,17 @@ const UserRow = ({ user }) => {
   const [admin, setAdmin] = useState(user.admin);
 
   const handleVerified = async () => {
-    await updateUser(!verified, banned, admin, showNotification);
+    await updateUser(user.uid, !verified, banned, admin, showNotification);
     setVerified(!verified);
   };
 
   const handleBanned = async () => {
-    await updateUser(verified, !banned, admin, showNotification);
+    await updateUser(user.uid, verified, !banned, admin, showNotification);
     setBanned(!banned);
   };
 
   const handleAdmin = async () => {
-    await updateUser(verified, banned, !admin, showNotification);
+    await updateUser(user.uid, verified, banned, !admin, showNotification);
     setAdmin(!admin);
   };
 

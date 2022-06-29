@@ -36,7 +36,7 @@ export function Signup() {
             ? theme.colors.dark[9]
             : theme.colors.gray[2]
         }
-        opened={modalContent.length !== 0}
+        opened={modalContent && modalContent.length !== 0}
         onClose={() => setModalContent("")}
         title="Cloakify"
         overlayOpacity={0.55}

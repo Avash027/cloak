@@ -17,11 +17,17 @@ export const getAllUsers = async (setUsers, setError, setLoading) => {
   }
 };
 
-export const updateUser = async (verified, banned, admin, showNotification) => {
+export const updateUser = async (
+  uid,
+  verified,
+  banned,
+  admin,
+  showNotification
+) => {
   try {
     const { data } = await axios.post(
       "/api/admin/user",
-      { verified, banned, admin },
+      { verified, banned, admin, uid },
       {
         headers: {
           Authorization: Cookies.get("authToken"),
