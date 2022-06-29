@@ -72,7 +72,7 @@ export function Sidebar({ theme, setTheme,setIsModalOpened }) {
 
   const NavbarData = [
     { icon: Home2, label: "Home" ,href:"/home"},
-    { icon: User, label: "Account",href:"/user/all"},
+    { icon: User, label: "Account",href:"/user/my"},
     { icon: Plus, label: "Post" ,onClick:()=>setIsModalOpened(true)},
     { icon:Bookmark , label:"Bookmarks" , href:`/user/bookmarks`},
     { icon:Heart , label:"Liked" , href:"/user/likes"},

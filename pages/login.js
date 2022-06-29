@@ -22,6 +22,7 @@ export function Login() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [modalContent, setModalContent] = useState("");
+  const [newUser, setNewUser] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -48,6 +49,22 @@ export function Login() {
       >
         <h4 align="center">{modalContent}</h4>
       </Modal>
+
+      <Modal
+        opened={newUser}
+        onClose={() => setNewUser(false)}
+        title="Cloakify"
+        overlayOpacity={0.55}
+        overlayBlur={3}
+        size="xl"
+      >
+        <h3 align="center">
+          Hey! You can use this email and password to check the app
+        </h3>
+        <h4 align="center">test@gmail.com</h4>
+        <h4 align="center">test123</h4>
+      </Modal>
+
       <Container size={420} my={40}>
         <Title
           align="center"
