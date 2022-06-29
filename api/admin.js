@@ -12,6 +12,7 @@ export const getAllUsers = async (setUsers, setError, setLoading) => {
     setLoading(false);
     setUsers(data);
   } catch (error) {
+    console.log(error);
     setLoading(false);
     setError("There was an error");
   }
@@ -25,7 +26,7 @@ export const updateUser = async (
   showNotification
 ) => {
   try {
-    const { data } = await axios.post(
+    await axios.post(
       "/api/admin/user",
       { verified, banned, admin, uid },
       {
