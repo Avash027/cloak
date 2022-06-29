@@ -61,7 +61,7 @@ export function Login() {
         <h3 align="center">
           Hey! You can use this email and password to check the app
         </h3>
-        <h4 align="center">test@gmail.com</h4>
+        <h4 align="center">test@iiit-bh.ac.in</h4>
         <h4 align="center">test123</h4>
       </Modal>
 
