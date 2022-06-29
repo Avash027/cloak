@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
+import { createStyles, Card, ActionIcon, Group, Text, Avatar, Badge,Overlay,Button } from '@mantine/core';
 import { Heart, Bookmark, EyeOff } from 'tabler-icons-react';
 import { useMediaQuery } from '@mantine/hooks';
 
@@ -7,7 +7,8 @@ const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     marginTop:"5rem",
-    borderTopColor:"red"
+    borderTopColor:"red",
+    position:"relative"
 
   },
 
@@ -25,6 +26,14 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
   },
+  showButton:{
+    zIndex:2,
+    position:"absolute",
+    top:"50%",
+    left:"50%",
+    transform:"translate(-50%,-50%)",
+  }
+
 }));
 
 
@@ -42,13 +51,15 @@ export function Post({
   likesCount,
   setPid,
   loggedInUser,
-  handlePostDelete
+  handlePostDelete,
+  toxicity
 }) {
   const { classes, theme } = useStyles();
   const midWidth = useMediaQuery("(max-width:1000px)")
   const maxWidth = useMediaQuery("(max-width:400px)")
 
   const [likes, setLikes] = useState(likesCount);
+  const [isVisible, setIsVisible] = useState(toxicity < 0.6);
 
   const likesHandler = ()=>{
     updateLikedPosts(pid);
@@ -69,6 +80,13 @@ export function Post({
   return (
     <Card withBorder p="lg" radius="md" className={classes.card} style={{width}} >
 
+      {!isVisible && <Overlay opacity={0.6} color="#000" blur={7} zIndex={1}>
+        </Overlay>}
+
+
+        {!isVisible && <Button className={classes.showButton} onClick={e=>setIsVisible(true)}>
+          This post might be offensive. Do you want to see it?</Button>}
+
     <div onClick={e=>setPid(pid)} style={{cursor:"pointer"}}>
     <Text weight={700} className={classes.title} mt="xs">
         {title}
@@ -76,11 +94,6 @@ export function Post({
 
 
       <Badge>{collegeName}</Badge>
-
-
- 
-      
-
 
       <Group mt="lg">
         <Avatar src={profilePicURL} radius="sm" />

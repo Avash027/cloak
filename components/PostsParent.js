@@ -91,6 +91,7 @@ const PostsParent = ({
           profilePicUrl,
           created_at,
           likesCount,
+          toxicity,
         }) => (
           <Post
             key={pid}
@@ -109,6 +110,7 @@ const PostsParent = ({
             setPid={setPid}
             loggedInUser={loggedInUser}
             handlePostDelete={handlePostDelete}
+            toxicity={toxicity}
           ></Post>
         )
       )}
