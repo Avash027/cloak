@@ -4,6 +4,8 @@
 
 **Webapp live at: [Here](https://cloak-gilt.vercel.app/)**
 
+**Note: For now it uses domain of iiit-bh.ac.in. But you can use test email for checking the app**
+
 ### Libraries and Frameworks used
 
 - Used **Postgres** for database
